@@ -1,5 +1,6 @@
 package com.example.homework_jc.ui.characters
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import org.koin.androidx.compose.koinViewModel
@@ -31,6 +33,7 @@ fun CharacterDetailScreen(characterId: Int) {
                 contentDescription = character.name,
                 modifier = Modifier
                     .fillMaxWidth()
+                    .background(Color.Yellow)
                     .height(200.dp)
             )
             Spacer(modifier = Modifier.height(16.dp))

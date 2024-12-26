@@ -1,15 +1,17 @@
 package com.example.homework_jc.data.utils
 
+import CharactersScreen
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.homework_jc.ui.characters.CharacterDetailScreen
-import com.example.homework_jc.ui.characters.CharactersScreen
 import com.example.homework_jc.ui.common.AppBottomBar
 import com.example.homework_jc.ui.common.AppTopBar
 import com.example.homework_jc.ui.episodes.EpisodesScreen
@@ -31,7 +33,8 @@ fun MainScreen() {
         topBar = { AppTopBar(navController) },
         bottomBar = { AppBottomBar(navController) }
     ) { innerPadding ->
-        Box(modifier = Modifier.padding(innerPadding)) {
+        Box(modifier = Modifier.padding(innerPadding)
+            .background(Color.Cyan)) {
             NavHost(navController = navController, startDestination = "characters") {
 
                 composable("characters") { CharactersScreen(navController) }

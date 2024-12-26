@@ -1,5 +1,6 @@
 package com.example.homework_jc.ui.common
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -26,11 +27,13 @@ import com.example.homework_jc.data.model.CharacterResponse
 fun CharacterCard(character: CharacterResponse.Character, onClick: () -> Unit, isFavorite: Boolean, onFavoriteClick: () -> Unit) {
     Card(
         modifier = Modifier
-            .padding(8.dp)
+            .padding(4.dp)
             .fillMaxWidth()
             .clickable(onClick = onClick)
     ) {
-        Row(modifier = Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+        Row(modifier = Modifier
+            .background(Color.Yellow)
+            .padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
             AsyncImage(
                 model = character.image,
                 contentDescription = character.name,

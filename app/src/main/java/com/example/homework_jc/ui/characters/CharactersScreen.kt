@@ -1,17 +1,19 @@
-package com.example.homework_jc.ui.characters
-
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Modifier
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.homework_jc.ui.characters.CharactersViewModel
 import com.example.homework_jc.ui.common.CharacterCard
 import org.koin.androidx.compose.koinViewModel
 
@@ -22,20 +24,25 @@ fun CharactersScreen(navController: NavController) {
     val isLoading = viewModel.isLoading.collectAsState().value
     val favoriteCharacters = viewModel.favoriteCharacters.collectAsState().value
 
-    LazyColumn(modifier = Modifier.padding(16.dp)) {
+    LazyColumn(modifier = Modifier.padding(12.dp)) {
         items(characters) { character ->
             val isFavorite = favoriteCharacters.contains(character)
 
-            CharacterCard(
-                character = character,
-                onClick = {
-                    navController.navigate("character_detail/${character.id}")
-                },
-                isFavorite = isFavorite,
-                onFavoriteClick = {
-                    viewModel.toggleFavorite(character)
-                }
-            )
+            Box(
+                modifier = Modifier
+                    .padding(8.dp)
+            ) {
+                CharacterCard(
+                    character = character,
+                    onClick = {
+                        navController.navigate("character_detail/${character.id}")
+                    },
+                    isFavorite = isFavorite,
+                    onFavoriteClick = {
+                        viewModel.toggleFavorite(character)
+                    }
+                )
+            }
         }
 
         if (!isLoading) {

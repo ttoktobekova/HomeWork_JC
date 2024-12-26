@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">HomeWork_JC</string>
+    <string name="delete_is_fav">Удалить из избранного?</string>
+    <string name="ask_for_delete_is_favorites">Вы уверены, что хотите удалить этого персонажа из избранного?</string>
+    <string name="cancel">Отмена</string>
+    <string name="delete">Удалить</string>
+    <string name="star_icon">Star Icon</string>
+    <string name="favorite_toggle">Favorite Toggle</string>
+    <string name="no_favorite_characters_yet">No favorite characters yet!</string>
+    <string name="favorites">Favorites</string>
 </resources>

@@ -51,19 +51,17 @@ android {
 }
 
 dependencies {
+    //animation
+    implementation("com.google.accompanist:accompanist-navigation-animation:0.32.0")
     //paging3
     implementation(libs.androidx.paging.runtime.ktx)
     //noinspection GradleDependency
     implementation(libs.androidx.paging.compose)
-
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
-
     implementation("androidx.paging:paging-runtime:3.1.1")
     implementation("androidx.paging:paging-compose:1.0.0-alpha16")
     implementation("androidx.compose.material3:material3:1.3.1")
-
     implementation("androidx.compose.material3:material3:1.3.1")
-
     // Navigation for Compose
     implementation("androidx.navigation:navigation-compose:2.8.5")
 

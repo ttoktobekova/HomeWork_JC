@@ -1,21 +1,22 @@
-package com.example.homework_jc.data.utils
+package com.example.homework_jc.data.nav
 
 import CharactersScreen
-import androidx.compose.foundation.background
+import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.homework_jc.ui.characters.details.CharacterDetailScreen
 import com.example.homework_jc.data.appbar.AppBottomBar
 import com.example.homework_jc.data.appbar.AppTopBar
+import com.example.homework_jc.ui.anim.CustomScreenAnimations
+import com.example.homework_jc.ui.characters.details.CharacterDetailScreen
 import com.example.homework_jc.ui.episodes.EpisodesScreen
-import com.example.homework_jc.ui.episodes.EpisodesViewModel
 import com.example.homework_jc.ui.favorites.FavoriteCharacterViewModel
 import com.example.homework_jc.ui.favorites.FavoriteCharactersScreen
 import com.example.homework_jc.ui.locations.LocationDetailScreen
@@ -24,43 +25,54 @@ import org.koin.androidx.compose.koinViewModel
 
 
 @Composable
-fun MainScreen() {
-
+fun MainNavScreen() {
     val navController = rememberNavController()
-    val episodesViewModel = koinViewModel<EpisodesViewModel>()
 
     Scaffold(
         topBar = { AppTopBar(navController) },
         bottomBar = { AppBottomBar(navController) }
     ) { innerPadding ->
-        Box(modifier = Modifier.padding(innerPadding)
-            .background(Color.Cyan)) {
-            NavHost(navController = navController, startDestination = "characters") {
-
-                composable("characters") { CharactersScreen(navController) }
-                composable("locations") { LocationsScreen(navController) }
-                composable("episodes") {
-                    EpisodesScreen(episodesViewModel)
-                }
-                composable("character_detail/{characterId}") { backStackEntry ->
+        Box(modifier = Modifier.padding(innerPadding)) {
+            NavHost(
+                navController = navController,
+                startDestination = "characters"
+            ) {
+                composableWithTransitions("characters") { CharactersScreen(navController) }
+                composableWithTransitions("locations") { LocationsScreen(navController) }
+                composableWithTransitions("episodes") { EpisodesScreen(navController) }
+                composableWithTransitions("character_detail/{characterId}") { backStackEntry ->
                     val characterId =
                         backStackEntry.arguments?.getString("characterId")?.toIntOrNull()
                     if (characterId != null) {
                         CharacterDetailScreen(characterId)
                     }
                 }
-                composable("location_detail/{locationId}") { backStackEntry ->
+                composableWithTransitions("location_detail/{locationId}") { backStackEntry ->
                     val locationId =
                         backStackEntry.arguments?.getString("locationId")?.toIntOrNull()
                     if (locationId != null) {
                         LocationDetailScreen(locationId)
                     }
                 }
-                composable("favorites") {
+                composableWithTransitions("favorites") {
                     val viewModel: FavoriteCharacterViewModel = koinViewModel()
                     FavoriteCharactersScreen(viewModel = viewModel)
                 }
             }
         }
     }
+}
+
+fun NavGraphBuilder.composableWithTransitions(
+    route: String,
+    content: @Composable AnimatedContentScope.(NavBackStackEntry) -> Unit
+) {
+    composable(
+        route = route,
+        enterTransition = { CustomScreenAnimations.enterFromRight },
+        exitTransition = { CustomScreenAnimations.exitToLeft },
+        popEnterTransition = { CustomScreenAnimations.popEnterFromLeft },
+        popExitTransition = { CustomScreenAnimations.popExitToRight },
+        content = content
+    )
 }

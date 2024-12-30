@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import com.example.homework_jc.data.model.Episode
 
 @Composable
-fun EpisodeCard(episode: Episode) {
+fun EpisodeCard(episode: Episode, onClick: () -> Unit) {
     Card(modifier = Modifier.padding(8.dp)) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(text = "Episode: ${episode.name}")

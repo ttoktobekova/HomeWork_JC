@@ -1,12 +1,12 @@
 package com.example.homework_jc.di
 
 import com.example.homework_jc.data.local.AppDatabase
-import com.example.homework_jc.data.repository.ApiService
+import com.example.homework_jc.data.api.ApiService
 import com.example.homework_jc.data.repository.EpisodesRepository
 import com.example.homework_jc.data.repository.EpisodesRepositoryImpl
 import com.example.homework_jc.data.repository.FavoriteCharacterRepository
 import com.example.homework_jc.data.repository.Repository
-import com.example.homework_jc.ui.characters.CharacterDetailViewModel
+import com.example.homework_jc.ui.characters.details.CharacterDetailViewModel
 import com.example.homework_jc.ui.characters.CharactersViewModel
 import com.example.homework_jc.ui.episodes.EpisodesViewModel
 import com.example.homework_jc.ui.favorites.FavoriteCharacterViewModel

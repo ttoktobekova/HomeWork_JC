@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
-
 }
 
 android {
@@ -52,29 +51,39 @@ android {
 }
 
 dependencies {
+    //paging3
+    implementation(libs.androidx.paging.runtime.ktx)
+    //noinspection GradleDependency
+    implementation(libs.androidx.paging.compose)
 
-    implementation ("androidx.compose.material3:material3:1.3.1")
+    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+
+    implementation("androidx.paging:paging-runtime:3.1.1")
+    implementation("androidx.paging:paging-compose:1.0.0-alpha16")
+    implementation("androidx.compose.material3:material3:1.3.1")
+
+    implementation("androidx.compose.material3:material3:1.3.1")
 
     // Navigation for Compose
-    implementation ("androidx.navigation:navigation-compose:2.8.5")
+    implementation("androidx.navigation:navigation-compose:2.8.5")
 
     // Retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
     // Koin
-    implementation ("io.insert-koin:koin-android:3.5.0")
-    implementation ("io.insert-koin:koin-androidx-compose:3.5.0")
+    implementation("io.insert-koin:koin-android:3.5.0")
+    implementation("io.insert-koin:koin-androidx-compose:3.5.0")
 
     // Coroutine and Flow
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    implementation (libs.androidx.lifecycle.runtime.ktx.v262)
-    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
-    implementation ("androidx.room:room-runtime:2.6.1")
-    kapt ("androidx.room:room-compiler:2.6.1") // для генерации кода
-    implementation (libs.androidx.room.ktx.v250)
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+    implementation(libs.androidx.lifecycle.runtime.ktx.v262)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
+    implementation("androidx.room:room-runtime:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1") // для генерации кода
+    implementation(libs.androidx.room.ktx.v250)
     // Coil (optional, for image loading in details)
-    implementation ("io.coil-kt:coil-compose:2.4.0")
+    implementation("io.coil-kt:coil-compose:2.4.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

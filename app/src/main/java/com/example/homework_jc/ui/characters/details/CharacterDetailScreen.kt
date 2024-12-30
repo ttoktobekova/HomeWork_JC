@@ -1,4 +1,4 @@
-package com.example.homework_jc.ui.characters
+package com.example.homework_jc.ui.characters.details
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

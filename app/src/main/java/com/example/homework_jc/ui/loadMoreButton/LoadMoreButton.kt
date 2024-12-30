@@ -1,4 +1,4 @@
-package com.example.homework_jc.ui.common
+package com.example.homework_jc.ui.loadMoreButton
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button

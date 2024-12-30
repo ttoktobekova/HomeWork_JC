@@ -1,4 +1,4 @@
-package com.example.homework_jc.ui.common
+package com.example.homework_jc.ui.locations.card
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column

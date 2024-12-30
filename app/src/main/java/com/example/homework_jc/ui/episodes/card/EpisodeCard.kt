@@ -1,4 +1,4 @@
-package com.example.homework_jc.ui.common
+package com.example.homework_jc.ui.episodes.card
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding

@@ -5,8 +5,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.homework_jc.ui.common.EpisodeCard
-import com.example.homework_jc.ui.common.LoadMoreButton
+import com.example.homework_jc.ui.episodes.card.EpisodeCard
+import com.example.homework_jc.ui.loadMoreButton.LoadMoreButton
 
 @Composable
 fun EpisodesScreen(viewModel: EpisodesViewModel = viewModel()) {

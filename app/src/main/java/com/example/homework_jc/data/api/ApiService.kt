@@ -1,4 +1,4 @@
-package com.example.homework_jc.data.repository
+package com.example.homework_jc.data.api
 
 import com.example.homework_jc.data.model.CharacterResponse
 import com.example.homework_jc.data.model.EpisodeResponse
@@ -10,7 +10,7 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("location")
-    suspend fun getLocations(): Response<LocationResponse>
+    suspend fun getLocations(@Query("page") page: Int): Response<LocationResponse>
 
     @GET("character/{id}")
     suspend fun getCharacterById(@retrofit2.http.Path("id") id: Int): Response<CharacterResponse.Character>
@@ -19,7 +19,7 @@ interface ApiService {
     suspend fun getLocationById(@retrofit2.http.Path("id") id: Int): Response<LocationResponse.Location>
 
     @GET("character")
-    suspend fun getCharacters(@Query("page") page: Int): Response<CharacterResponse>
+    suspend fun getCharacters(@Query("page") page: Int): CharacterResponse
 
     @GET("episode")
     suspend fun getEpisodes(@Query("page") page: Int): Response<EpisodeResponse>

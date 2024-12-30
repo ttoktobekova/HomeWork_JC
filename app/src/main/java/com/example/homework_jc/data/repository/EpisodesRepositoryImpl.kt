@@ -1,6 +1,7 @@
 package com.example.homework_jc.data.repository
 
 import android.util.Log
+import com.example.homework_jc.data.api.ApiService
 import com.example.homework_jc.data.model.Episode
 
 class EpisodesRepositoryImpl(private val apiService: ApiService) : EpisodesRepository {

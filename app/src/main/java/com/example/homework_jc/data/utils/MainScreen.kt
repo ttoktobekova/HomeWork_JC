@@ -11,9 +11,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.homework_jc.ui.characters.CharacterDetailScreen
-import com.example.homework_jc.ui.common.AppBottomBar
-import com.example.homework_jc.ui.common.AppTopBar
+import com.example.homework_jc.ui.characters.details.CharacterDetailScreen
+import com.example.homework_jc.data.appbar.AppBottomBar
+import com.example.homework_jc.data.appbar.AppTopBar
 import com.example.homework_jc.ui.episodes.EpisodesScreen
 import com.example.homework_jc.ui.episodes.EpisodesViewModel
 import com.example.homework_jc.ui.favorites.FavoriteCharacterViewModel

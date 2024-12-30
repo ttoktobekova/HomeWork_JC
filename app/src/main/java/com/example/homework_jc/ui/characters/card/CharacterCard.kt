@@ -1,4 +1,4 @@
-package com.example.homework_jc.ui.common
+package com.example.homework_jc.ui.characters.card
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -24,28 +24,28 @@ import coil.compose.AsyncImage
 import com.example.homework_jc.data.model.CharacterResponse
 
 @Composable
-fun CharacterCard(character: CharacterResponse.Character, onClick: () -> Unit, isFavorite: Boolean, onFavoriteClick: () -> Unit) {
+fun CharacterCard(character: CharacterResponse.Character?, onClick: () -> Unit, isFavorite: Boolean, onFavoriteClick: () -> Unit) {
     Card(
         modifier = Modifier
-            .padding(4.dp)
+            .padding(8.dp)
             .fillMaxWidth()
             .clickable(onClick = onClick)
     ) {
-        Row(modifier = Modifier
-            .background(Color.Yellow)
-            .padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
+        Row(modifier = Modifier.padding(16.dp), verticalAlignment = Alignment.CenterVertically) {
             AsyncImage(
-                model = character.image,
-                contentDescription = character.name,
+                model = character?.image,
+                contentDescription = character?.name,
                 modifier = Modifier
                     .size(84.dp)
                     .padding(end = 16.dp)
             )
 
             Column(modifier = Modifier.weight(1f)) {
-                Text(text = character.name, style = MaterialTheme.typography.bodyLarge)
+                if (character != null) {
+                    Text(text = character.name, style = MaterialTheme.typography.bodyLarge)
+                }
                 Text(
-                    text = "${character.species} - ${character.status}",
+                    text = "${character?.species} - ${character?.status}",
                     style = MaterialTheme.typography.bodySmall
                 )
             }
